@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+	Name: Varun Rajavelu
+	This File  will show the complete list of all the survey taken
+	It will has have links to page to other pages 
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+   	xmlns:ui="http://java.sun.com/jsf/facelets"
+   	xmlns:f="http://java.sun.com/jsf/core"
+   	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>List Survey</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<table>
+			<tr>
+				<td style="width:40%;">
+					<p:commandButton action="SurveyForm.xhtml" value="Go To Survey Page"></p:commandButton>
+				</td>
+				<td style="width:20%;"></td>
+				<td style="margin-left:40%;">
+					<p:commandButton action="index.xhtml" value="Go To Welcome Page"></p:commandButton>
+				</td>
+			</tr>
+		</table>
+		<h2 align="center">List of Surveys </h2>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Street Address</th>
+					<th>City</th>
+					<th>State</th>
+					<th>Zip</th>
+					<th>Telephone</th>
+					<th>Email</th>
+					<th>Date Of survey</th>
+					<th>Sem Start Date</th>
+					<th>Things liked</th>
+					<th>Known through</th>
+					<th>Recommending to others</th>
+					<th>Comments</th>	
+				</tr>
+			</thead>
+			<tbody>
+				<ui:repeat var="iterator" value="#{studentService.ReadFile()}">
+					<tr>
+						<td>#{iterator.firstName}</td>
+						<td>#{iterator.lastName}</td>
+						<td>#{iterator.Address}</td>
+						<td>#{iterator.city}</td>
+						<td>#{iterator.state}</td>
+						<td>#{iterator.zip}</td>
+						<td>#{iterator.telephone}</td>
+						<td>#{iterator.email}</td>
+						<td>#{iterator.surveyDate}</td>
+						<td>#{iterator.SemDate}</td>
+						<td>#{iterator.thingsToLike}</td>
+						<td>#{iterator.interests}</td>
+						<td>#{iterator.likelihood}</td>
+						<td>#{iterator.comments}</td>
+					</tr>
+					
+				</ui:repeat>
+			</tbody>
+		</table>
+		<p align="center" style="font-size:175%"><b><u>By Varun Rajavelu</u></b></p>
+	</h:form>
+</h:body>
+</html>
